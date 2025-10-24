@@ -158,6 +158,21 @@ body {
     font-size: 1.1rem;
 }
 
+/* Spotify playlist link in the page header */
+.spotify-link {
+    color: #c0d4ab;
+    font-size: 1.1rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.18s ease, color 0.18s ease;
+}
+
+.spotify-link:hover,
+.spotify-link:focus {
+    transform: scale(1.06);
+    color: #e8f5d8;
+}
+
 .card {
     background-color: #234011;
     padding: 2rem;
