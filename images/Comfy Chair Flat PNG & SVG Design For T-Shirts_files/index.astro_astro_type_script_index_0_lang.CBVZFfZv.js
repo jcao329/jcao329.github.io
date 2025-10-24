@@ -1,0 +1,1 @@
+import{t as n}from"./events.DRzJO38d.js";const t=document.getElementById("open-designer-button");t&&t.addEventListener("click",i=>{const e=t.getAttribute("data-content-id");n("click_preview_options",{preview:{optionClicked:"Edit Online"},content:{id:e}})});
