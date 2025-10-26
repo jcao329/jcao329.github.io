@@ -8,19 +8,32 @@
 </head>
 <body>
     <button class="toggle-btn" id="toggleBtn">☰</button>
-    
-    <aside class="sidebar" id="sidebar">
-        <div class="sidebar-header">
-            <h1>jess's corner</h1>
-            <p>come get comfortable</p>
-        </div>
-        <ul class="nav-menu">
-            <li><a href="#home" class="nav-link active" data-page="home">home</a></li>
-            <li><a href="#thoughts" class="nav-link" data-page="thoughts">substack</a></li>
-            <li><a href="#side-projects" class="nav-link" data-page="side-projects">side projects</a></li>
-            <li><a href="#about" class="nav-link" data-page="about">about me</a></li>
-        </ul>
-    </aside>
+    <title>Home</title>
+    <!-- Inline loading styles: visible until JS adds the .js-ready class to <html> -->
+    <style>
+    /* Loading overlay and page dim/blur while JS initializes (only when loading-pending is set after 1s) */
+    :root { --loading-bg: rgba(255,255,255,0.6); --loading-text: #222; }
+    html.loading-pending:not(.js-ready) body::before {
+        content: 'Loading…';
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.5));
+        color: var(--loading-text);
+        font: 600 1.1rem / 1.2 system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+        backdrop-filter: blur(4px) saturate(90%);
+        z-index: 9999;
+        pointer-events: none;
+    }
+    /* Slightly blur the main content while loading */
+    html.loading-pending:not(.js-ready) main, html.loading-pending:not(.js-ready) .content-section {
+        filter: blur(2px) saturate(90%);
+        transition: filter .25s ease;
+    }
+    </style>
+    <div id="sidebar-container"></div>
 
     <main class="main-content" id="mainContent">
          <section id="home" class="content-section active">
@@ -33,7 +46,7 @@
                     <div class="chair-emoji">
                         <img src="./images/9943530.png" alt="Thinking Chair" width="300x" />
                     </div>
-                    <h3>some thoughts</h3>
+                    <h3>my substack</h3>
                 </div>
                 <div class="chair-item" data-page="side-projects">
                     <div class="chair-emoji">
@@ -41,7 +54,7 @@
                     </div>
                     <h3>side projects</h3>
                 </div>
-                <div class="chair-item" data-page="about me">
+                <div class="chair-item" data-page="about">
                     <div class="chair-emoji">                      
                          <img class = "img-hor" src="./images/Comfy-Green-Armchair-PNG-HD.png" alt="About Chair" width="300x" height = "300x" />
                     </div>
@@ -50,60 +63,9 @@
             </div>
         </section>
 
-        <section id="thoughts" class="content-section">
-            <div class="page-header">
-                <h2>thoughts!</h2>
-                <p>reasonable takes on reasonable topics</p>
-            </div>
-            <!-- <div class="thought-entry">
-                <div class="thought-date">October 24, 2025</div>
-                <div class="card">
-                    <h3>On Urban Design</h3>
-                    <p> the placement of benches and green spaces fundamentally changes how people interact with their environment. There'</p>
-                </div>
-            </div> -->
-            <!-- <div class="thought-entry">
-                <div class="thought-date">October 20, 2025</div>
-                <div class="card">
-                    <h3>Technology and Simplicity</h3>
-                    <p>The best technology is often invisible. It works so seamlessly that you forget it's there. We should strive for that level of elegance in everything we build.</p>
-                </div>
-            </div> -->
-        </section>
-
-        <section id="side-projects" class="content-section">
-            <div class="page-header">
-                <h2>silly things i work on</h2>
-                <p>just for fun!</p>
-            </div>
-            <div class="card">
-                <h3>see train go</h3>
-                <p>pick your favorite stop and train line and watch it arrive and leave the station</p>
-                <!-- <div class="data-table">
-                  
-                </div> -->
-            </div>
-             <div class="card">
-                <h3>eat a fruit</h3>
-                <p>eat a little digital fruit</p>
-                <!-- <div class="data-table">
-                  
-                </div> -->
-            </div>
-        </section>
-
-        <section id="about" class="content-section">
-            <div class="page-header">
-                <h2>about</h2>
-                <p>a little bit about this site</p>
-            </div>
-            <!-- <div class="card">
-                <h3>About This Website</h3>
-                <p>This is my personal space on the internet where I collect thoughts, track interesting data, and experiment with ideas. Feel free to explore and reach out if anything resonates with you.</p>
-            </div> -->
-        </section>
+    <!-- secondary sections moved to dedicated pages: thoughts.html, projects.html, about.html -->
     </main>
 
-     <script src="src/main.js"></script>
+    <script src="src/include-sidebar.js"></script>
 </body>
 </html>

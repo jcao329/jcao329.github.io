@@ -103,11 +103,76 @@ body {
     border-left-color: #a8d583;
 }
 
-.nav-menu a.active {
+.js-ready .nav-menu a.active {
     background-color: #3d6b1f;
     color: #e8f5d8;
     border-left-color: #a8d583;
     font-weight: 500;
+}
+
+/* Submenu styles */
+.has-submenu {
+    position: relative;
+}
+
+.submenu-toggle {
+    width: 100%;
+    /* shorter visual height via smaller padding and line-height */
+    padding: 0.28rem 1rem; /* slightly tighter */
+    line-height: 1rem;
+    text-align: left;
+    background: transparent;
+    border: none;
+    color: #c0d4ab;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.85rem; /* smaller but readable */
+    text-indent: 0.8rem; /* indent text to show nesting */
+    cursor: pointer;
+    display: none; /* hidden by default; only visible when side-projects is active or submenu opened */
+}
+
+.submenu-toggle:focus {
+    outline: 1px solid #a8d583;
+}
+
+.sub-menu {
+    list-style: none;
+    display: none;
+    padding-left: 1rem;
+}
+
+.has-submenu.open .sub-menu {
+    display: block;
+}
+
+/* show the submenu-toggle when the side projects link is active (user selected) */
+.submenu-header .nav-link.active + .submenu-toggle,
+/* or when the submenu group is open */
+.has-submenu.open .submenu-toggle {
+    display: block;
+}
+
+.sub-menu a {
+    padding: 0.28rem 1.25rem; /* match submenu-toggle compact height */
+    display: block;
+    color: #c0d4ab;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.85rem; /* match submenu-toggle */
+}
+
+/* ensure submenu links use the same monospace font and are slightly indented */
+.sub-menu, .sub-menu a {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.submenu-toggle::after {
+    float: right;
+    transform: rotate(0deg);
+    transition: transform 0.2s ease;
+}
+
+.has-submenu.open .submenu-toggle::after {
+    transform: rotate(-180deg);
 }
 
 .main-content {
@@ -243,6 +308,53 @@ body {
     padding: 2rem;
 }
 
+/* Project grid: three items per row, equal-height items, same hover effect as chair-item */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.project-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.project-item {
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 300px; /* enforce equal height */
+}
+
+.project-emoji {
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.project-item:hover .project-emoji {
+    transform: scale(1.3) rotate(-5deg);
+}
+
+.project-item h3 {
+    color: #a8d583;
+    margin-top: 1rem;
+    font-size: 1.3rem;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.project-item:hover h3 {
+    opacity: 1;
+}
+
 .chair-item {
     text-align: center;
     cursor: pointer;
@@ -290,6 +402,11 @@ body {
     
     .toggle-btn.shifted {
         left: 1rem;
+    }
+
+    /* Project grid responsiveness */
+    .project-grid {
+        grid-template-columns: repeat(1, 1fr);
     }
 }
 .img-hor {
