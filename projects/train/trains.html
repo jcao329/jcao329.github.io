@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Project One</title>
+  <link rel="stylesheet" href="../../styles.css" />
+</head>
+<body>
+  <div id="sidebar-container"></div>
+  <title>Trains</title>
+  <main class="main-content" id="mainContent">
+    <section class="content-section active">
+    <div class = "page-header">
+      <h2>Project One</h2>
+      <p>This is a placeholder page for Project One.</p>
+    </div>
+    <p><a href="/index.html" class="spotify-link">Back to home</a></p>
+    <!-- train line selector -->
+    <div class="train-selector-wrap">
+      <label class="sr-only" for="train-lines">Select a train line</label>
+      <div id="train-lines" class="train-lines" role="list">
+        <!-- lines will be rendered here -->
+      </div>
+  </div>
+    <!-- stops selector (populated based on selected line) -->
+    <div class="stops-selector-wrap" style="margin-top:0.8rem">
+      <label class="sr-only" for="stops-list">Select a stop</label>
+      <div id="stops-list" class="stops-list" role="list"></div>
+    </div>
+    <div id = "stop-info" aria-live="polite" style="margin-top:1rem;font-weight:600">
+      <!-- stop info will be rendered here -->
+    </div>
+  </section>
+</main>
+  <script src="../../src/include-sidebar.js"></script>
+  <script src="../../src/trains.js"></script>
+
+  
+</body>
+</html>
