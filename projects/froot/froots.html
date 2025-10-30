@@ -15,9 +15,21 @@
       <h2>Project Two</h2>
       <p>This is a placeholder page for Project Two.</p>
     </div>
-          <p><a href="/index.html" class="spotify-link">Back to home</a></p>
+    <p><a href="/index.html" class="spotify-link">Back to home</a></p>
+        <!-- Froots selector layout -->
+    <div class = "froot-container">
+            <div class = "froot-selector-wrap">
+              <label class="sr-only" for="froot-list">Select a froot</label>
+              <h4>Select a fruit:</h4>
+              <div id="froot-list" class="froot-list" role="list"></div>
+          </div>
+          <div class = "dinner-plate" >
+              <img id="plate-image" src="../../images/froot/plate.png" alt="Dinner plate to display selected froot" width="400" height="400"/>
+        </div>
+    </div>
     </section>
   </main>
   <script src="../../src/include-sidebar.js"></script>
+  <script src="../../src/froots.js"></script>
 </body>
 </html>

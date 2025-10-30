@@ -12,13 +12,14 @@
   <main class="main-content" id="mainContent">
     <section class="content-section active">
     <div class = "page-header">
-      <h2>Project One</h2>
-      <p>This is a placeholder page for Project One.</p>
+      <h2>see train go!</h2>
+      <p>select a train line and a stop alone the train. little train will arrive and depart with the line you selected</p>
     </div>
     <p><a href="/index.html" class="spotify-link">Back to home</a></p>
     <!-- train line selector -->
     <div class="train-selector-wrap">
       <label class="sr-only" for="train-lines">Select a train line</label>
+      <h4>Select a train line:</h4>
       <div id="train-lines" class="train-lines" role="list">
         <!-- lines will be rendered here -->
       </div>
@@ -26,10 +27,10 @@
     <!-- stops selector (populated based on selected line) -->
     <div class="stops-selector-wrap" style="margin-top:0.8rem">
       <label class="sr-only" for="stops-list">Select a stop</label>
+      <h4>Select a stop:</h4>
       <div id="stops-list" class="stops-list" role="list"></div>
     </div>
     <div id = "stop-info" aria-live="polite" style="margin-top:1rem;font-weight:600">
-      <!-- stop info will be rendered here -->
     </div>
   </section>
 </main>

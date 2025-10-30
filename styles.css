@@ -352,13 +352,16 @@ body {
 }
 
 .chair-item {
+    position: relative;
     text-align: center;
     cursor: pointer;
+    align-items: center;
     transition: all 0.3s ease;
 }
 
 .chair-emoji {
     font-size: 8rem;
+    align-content: center;
     transition: transform 0.3s ease;
     display: inline-block;
 }
@@ -424,3 +427,64 @@ body {
 .stop-btn.active { background:#0066cc; color:#fff; border-color:#005bb5 }
 @media (max-width:520px){ .train-line-btn{ min-width:34px; padding:0.4rem 0.5rem; } }
 .sr-only{ position:absolute !important; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+
+/* Froots selector layout */
+.froot-container { display: flex; 
+  flex-direction: row; 
+  gap: 2rem; 
+  align-items: flex-start;  }
+.froot-selector-wrap { display:flex; flex-direction:column; gap:0.5rem; max-width:220px; }
+.froot-list { display:flex; flex-direction:column; gap:0.5rem; }
+.froot-thumb { 
+  border:none;
+  padding:0; 
+  cursor:pointer;
+  width: 88px;
+  height: 88px;
+  overflow: hidden;
+  padding: 10px;
+}
+.froot-thumb img{ 
+  display:block; 
+  border-radius:6px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Crops image to fill button */
+  object-position: center;
+}
+.froot-thumb.active{ 
+  outline: 2px solid #a8d583; 
+  outline-offset: 2px;
+} 
+
+/* Dinner plate with overlay positioning */
+.dinner-plate{ 
+  position: relative;
+  width: 400px;
+  height: 400px;
+}
+.dinner-plate img{ 
+  max-width:100%; 
+  height:auto; 
+  display:block; 
+}
+#plate-image {
+  position: relative;
+  z-index: 1;
+}
+#froot-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* layout for froot page: two columns */
+@media (max-width:720px){ 
+  .froot-container { flex-direction: column; }
+  .dinner-plate { width: 100%; height: auto; max-width: 300px; }
+}
